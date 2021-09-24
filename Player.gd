@@ -34,7 +34,7 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite.play()
 	else:
-		$AnimatedSprite.stop()	
+		$AnimatedSprite.animation = "idle"
 		
 	# Restricting player to the bounds of the screen size
 	position += velocity * delta
@@ -48,13 +48,12 @@ func _process(delta):
 			$AnimatedSprite.flip_h = true
 		else:
 			$AnimatedSprite.flip_h = false
-		$AnimatedSprite.flip_v = false
-	elif velocity.y != 0:
-		$AnimatedSprite.animation = "up"
-		if velocity.y < 0:
-			$AnimatedSprite.flip_v = false
-		else:
-			$AnimatedSprite.flip_v = true
+#	if velocity.y != 0:
+#		$AnimatedSprite.animation = "up"
+#		if velocity.y < 0:
+#			$AnimatedSprite.flip_v = false
+#		else:
+#			$AnimatedSprite.flip_v = true
 	
 
 # Disables player when an enemy collides with our 2d collision box (player dissapears on screen along with the collider)
